@@ -1,7 +1,7 @@
 a = 0.1 + 0.1 + 0.1
 print("1. ", a == 0.3)
 print("2. ", a)
-print(f"3.  { a:.1f}")
+print(f"3.  {a:.1f}")
 
 a = round(a, 1)
 print("4. ", a)

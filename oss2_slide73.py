@@ -6,4 +6,4 @@ def countdown(num):
         countdown(num - 1)
 
 
-countdown(4)
+countdown(10)

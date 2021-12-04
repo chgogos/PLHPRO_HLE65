@@ -9,7 +9,7 @@ while True:
             print('Λάθος είσοδος, δοκιμάστε ξανά')
         else:
             break
-    except:
+    except ValueError:
         print('Λάθος είσοδος, δοκιμάστε ξανά')
 
 print(x)
