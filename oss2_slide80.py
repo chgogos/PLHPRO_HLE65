@@ -6,9 +6,10 @@ def pascal_triangle(n):
     for i in range(2, n):
         for j in range(1, i):
             triangle[i][j] = triangle[i - 1][j - 1] + triangle[i - 1][j]
-    for x in triangle:
-        print(x)
-    return triangle
+    # for x in triangle:
+    #     print(x)
+    return triangle[-1]
 
 
-pascal_triangle(5)
+pt = pascal_triangle(5)
+print(pt)
