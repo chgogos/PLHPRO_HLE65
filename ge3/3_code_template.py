@@ -2,19 +2,21 @@
 
 from math import sin, cos, sqrt, atan2, radians
 
-data = '''ATH	Athens	37.936389°N 23.947222°E
+data = """ATH	Athens	37.936389°N 23.947222°E
 JTR	Santorini	36.402937°N 23.947222°E
 KLX	Kalamata	37.068333°N 22.025556°E
 RHO	Rhodes	36.405419°N 28.086192°E
-SKG	Thessaloniki	40.519722°N 22.970833°E'''
+SKG	Thessaloniki	40.519722°N 22.970833°E"""
 
-class Airport():
-    '''κλάση αεροδρομίων'''
-    airport_dict = {} # λεξικό που περιέχει ως τιμές τα αντικείμενα της κλάσης
+
+class Airport:
+    """κλάση αεροδρομίων"""
+
+    airport_dict = {}  # λεξικό που περιέχει ως τιμές τα αντικείμενα της κλάσης
 
     @staticmethod
     def load_airports(f):
-        for line in data.split('\n'):
+        for line in data.split("\n"):
             Airport(*line.strip().split("\t"))
 
     @staticmethod
@@ -30,43 +32,51 @@ class Airport():
         self.coordinates_str = coordinates
         self.coordinates = [float(x[:-2]) for x in coordinates.split()]
         Airport.airport_dict[code] = self
-    
+
     def __str__(self):
         return f"{self.code}  {self.name}  {self.coordinates_str}"
 
     def get_distance(self, other):
-        '''μέθοδος που υπολογίζει την απόσταση από ένα άλλο αεροδρόμιο'''
+        """μέθοδος που υπολογίζει την απόσταση από ένα άλλο αεροδρόμιο"""
         # based on haversine formula https://en.wikipedia.org/wiki/Haversine_formula#cite_note-Gade2010-9
-        R = 6373.0   # approximate radius of earth in km
+        R = 6373.0  # approximate radius of earth in km
         lat1, lon1 = radians(self.coordinates[0]), radians(self.coordinates[1])
         lat2, lon2 = radians(other.coordinates[0]), radians(other.coordinates[1])
         dlon = lon2 - lon1
         dlat = lat2 - lat1
-        a = sin(dlat / 2)**2 + cos(lat1) * cos(lat2) * sin(dlon / 2)**2
+        a = sin(dlat / 2) ** 2 + cos(lat1) * cos(lat2) * sin(dlon / 2) ** 2
         c = 2 * atan2(sqrt(a), sqrt(1 - a))
         d = R * c
         return d
 
-class Trip():
-    '''Κλάση Ταξιδιού, εκτυπώνει τις αποστάσεις των επί μέρους πτήσεων'''
-        def __init__(self, itinerary):
+
+class Trip:
+    """Κλάση Ταξιδιού, εκτυπώνει τις αποστάσεις των επί μέρους πτήσεων"""
+
+    def __init__(self, itinerary):
         self.itinerary = itinerary
-        self.airports = itinerary.split('-')
-        self.total_distance = 0        
+        self.airports = itinerary.split("-")
+        self.total_distance = 0
 
     def __str__(self):
-        '''επιστρέφει συμβολοσειρά με τη συνολική διαδρομή και τις αποστάσεις των πτήσεων'''
+        """επιστρέφει συμβολοσειρά με τη συνολική διαδρομή και τις αποστάσεις των πτήσεων"""
         pass
         # ερώτημα (α) συμπληρώστε τον κώδικα
 
-class Menu():
+
+class Menu:
     def __init__(self):
-        Airport.load_airports('airports.txt')
+        Airport.load_airports("airports.txt")
         while True:
-            print("Παρακαλώ εισάγετε δρομολόγιο ως ακολουθία κωδικών αεροδρομίων, πχ. KLX-ATH-RHO-ATH")
+            print(
+                "Παρακαλώ εισάγετε δρομολόγιο ως ακολουθία κωδικών αεροδρομίων, πχ. KLX-ATH-RHO-ATH"
+            )
             print(Airport.available_airports())
             itinerary = input(">>")
-            if not itinerary: break
-            ## ερώτημα (β) συμπληρώστε τον κώδικα 
+            if not itinerary:
+                break
+            ## ερώτημα (β) συμπληρώστε τον κώδικα
 
-if __name__ == "__main__": Menu()
+
+if __name__ == "__main__":
+    Menu()
