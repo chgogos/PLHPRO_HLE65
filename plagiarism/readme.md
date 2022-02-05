@@ -11,4 +11,4 @@ https://theory.stanford.edu/~aiken/moss/
 $ ./moss -l python code1.py code2.py
 ```
 
-![Αποτέλεσμα ελέγχου](./moss-output.png)
+![Αποτέλεσμα ελέγχου](https://github.com/chgogos/PLHPRO_HLE65/blob/gh-pages/plagiarism/moss-output.png)
