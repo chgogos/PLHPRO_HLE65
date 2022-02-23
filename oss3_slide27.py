@@ -12,9 +12,13 @@ class Car:
 
 
 c1 = Car(1, "Οικογενειακό", "Πράσινο")
-
-print(c1)
-
 del c1
 
-print(c1)
+def fun():
+    c = Car(2, "Οικογενειακό", "Πράσινο")
+    print(c)
+
+fun()
+
+
+

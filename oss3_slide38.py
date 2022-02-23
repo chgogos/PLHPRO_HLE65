@@ -19,7 +19,7 @@ class Card:
         print(f"Χρώμα={self.color} Φιγούρα={self.fig}")
 
 
-c = Card("K", "d")
+c = Card("2", "c")
 print(c)
 
 c.detailed_info()

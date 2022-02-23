@@ -46,7 +46,7 @@ class Pack(Deck):
         self.content = d.content * number_of_decks
 
 
-p = Pack()
+p = Pack(20)
 print(p)
 
 p.shuffle()
