@@ -79,3 +79,14 @@
 
 * [coffee-vending-v1.py](./coffee-vending-v1.py)
 * [coffee-vending-v2.py](./coffee-vending-v2.py)
+
+
+## ΟΣΣ3 (5/2/2022)
+
+<https://hackmd.io/@cgogos/S1S5X3tRY>
+
+
+## ΟΣΣ4 (3/4/2022)
+
+<https://hackmd.io/@cgogos/ryXNcu8m9>
+
