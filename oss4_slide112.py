@@ -3,11 +3,11 @@ import tkinter as tk
 root = tk.Tk()
 root.geometry('200x200+200+200')
 # case 1
-tk.Label(root, text='Label', bg='green').pack()
-tk.Label(root, text='Label2', bg='red').pack()
+# tk.Label(root, text='Label', bg='green').pack()
+# tk.Label(root, text='Label2', bg='red').pack()
 # case 2
-#tk.Label(root, text='Label', bg='green').pack(expand=1, fill ='y')
-#tk.Label(root, text='Label2', bg='red').pack(fill = 'both')
+tk.Label(root, text='Label', bg='green').pack(expand=1, fill ='y')
+tk.Label(root, text='Label2', bg='red').pack(fill = 'both')
 # case 3
 #tk.Label(root, text='Label', bg='green').pack(expand=1)
 #tk.Label(root, text='Label2', bg='red').pack(fill = 'both')
