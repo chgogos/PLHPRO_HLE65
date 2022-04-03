@@ -3,7 +3,7 @@ b = 3.141592
 c = "Hello"
 
 # simple print
-print(a,b,c)
+print(a, b, c)
 
 # classic
 print("a=%d, b=%10.2f, c=%s" % (a, b, c))
