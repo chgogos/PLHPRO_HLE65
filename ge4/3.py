@@ -7,23 +7,29 @@ def show_records(table):  # Συνάρτηση προβολής των εγγρ�
     sql = f"SELECT * from {table};"  # Ερώτημα (query) για την προβολή των εγγραφών ενός πίνακα
     # Υποερώτημα α
     conn = sqlite3.connect(DB_NAME)
-    cursor = conn.cursor()
+    
     col_data = conn.execute(f"PRAGMA table_info({table});").fetchall()
     print([entry[1] for entry in col_data])
+    
+    cursor = conn.cursor()
     result = cursor.execute(sql)
     for rec in result:
         print(rec)
+
     conn.close()
 
 
 def insert_student(name, surname):  # Συνάρτηση εισαγωγής φοιτητή
     sql = "INSERT INTO students(name,surname) VALUES (?,?);"  # Ερώτημα (query) για την εισαγωγή του ονόματος (name) και επώνυμου (surname) του νέου μαθητή στον πίνακα students
     # Υποερώτημα β
-    conn = sqlite3.connect(DB_NAME)
-    cursor = conn.cursor()
-    cursor.execute(sql, (name, surname))
-    conn.commit()
-    conn.close()
+    try:
+        conn = sqlite3.connect(DB_NAME)
+        cursor = conn.cursor()
+        cursor.execute(sql, (name, surname))
+        conn.commit()
+        conn.close()
+    except:
+        print("DB problem on insertion!")
 
 
 def delete_student(code):  # Συνάρτηση διαγραφής φοιτητή

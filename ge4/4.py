@@ -63,8 +63,8 @@ v2 = np.random.randint(random_num_range, size=vector_size)
 # Υπολογισμός και εμφάνιση χρόνων αναμονής
 t = timeit("τυπική υλοποίηση", repetitions, v1, v2)
 t_np = timeit("numpy", repetitions, v1, v2)
-print(f"Χρόνος τυπικής υλοποίησης = {t/repetitions:.6f}sec")
-print(f"Χρόνος numpy = {t_np/repetitions:.6f}sec")
+print(f"Χρόνος τυπικής υλοποίησης = {t:.6f}sec")
+print(f"Χρόνος numpy = {t_np:.6f}sec")
 
 # Υπολογισμός και εμφάνιση του λόγου των χρόνων εκτέλεσης
 print(f"Η υλοποίηση με το numpy γίνεται {t/t_np:.2f} φορές ταχύτερα")
